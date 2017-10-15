@@ -2,14 +2,19 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
-    "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,  //bug: angular #17131. Seems to be fixed in Angular 5.0
+    "strict": true,
+    "noStrictGenericChecks": true,
+    "skipLibCheck": true,
     "target": "es5",
     "typeRoots": [
-      "node_modules/@types"
+      "node_modules/@types",
+      "types"
     ],
     "lib": [
       "es2017",

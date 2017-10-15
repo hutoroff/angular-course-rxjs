@@ -1,27 +1,12 @@
-# AngularCourseRxjs
+# Angular Courses Homework 2 (rxjs)
+
+Используя реактивный подход и Angular, написать приложение поиска репозиториев github по термину (можете использовать любой api -> github рекомендуемый, если ничего не нашли ). При выполнении посмотрите в сторону таких операторов RxJS - debounce, switchMap, do, catch.  По желанию можно использовать fetch ( для отработки создания потока с Promise ) , но рекомендуемый HttpClient , где вы можете реализовать интерцептор (обязательно если вы используете HttpClient).
+
+Использовано API OpenWeatherMap для получения данных о текущей погоде погоде в искомом городе (https://openweathermap.org/current). Ограничение в 60 вызовов в минуту.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
 
-## Development server
+# Run
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* Execute 'ng serve' and follow to [http://localhost:4200/](http://localhost:4200/)
+* To run application in docker container execute 'docker-compose run'

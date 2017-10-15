@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  angular-course:
+    container_name: angular-course-homework-frontend
+    build: docker/frontend
+    ports:
+      - 4200:4200
+    volumes:
+      - ./:/var/www/angular-course-homework
+    tty: true
+    networks:
+      - angular-course-network
+
+networks:
+ angular-course-network:
