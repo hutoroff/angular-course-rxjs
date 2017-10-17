@@ -6,3 +6,7 @@
 export const environment = {
   production: false
 };
+
+export const urls = {
+  CURRENT_WEATHER: 'https://api.openweathermap.org/data/2.5/weather'
+};

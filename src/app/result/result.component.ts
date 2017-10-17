@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-result',
@@ -8,7 +9,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ResultComponent implements OnInit {
 
   @Input()
-  public forecast: WeatherForecast;
+  public forecast$: Observable<WeatherForecast>;
 
   constructor() { }
 

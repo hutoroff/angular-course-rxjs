@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Observable} from "rxjs/Observable";
+import {SearchService} from "./common/service/search.service";
 
 @Component({
   selector: 'app-root',
@@ -9,5 +11,11 @@ export class AppComponent {
   public logoPath: string = "assets/img/logo.svg";
   public searchPlaceholder: string = "Enter city name";
 
-  public forecast: WeatherForecast;
+  public forecast$: Observable<WeatherForecast>;
+
+  constructor(
+    private _searchService: SearchService
+  ) {
+    this.forecast$ = this._searchService._result$;
+  }
 }
