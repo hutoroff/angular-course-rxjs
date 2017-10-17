@@ -1,0 +1,6 @@
+<div *ngIf="forecast.cod===200">
+  <app-forecast-card [forecast]="forecast" class="result-card"></app-forecast-card>
+</div>
+<div *ngIf="forecast.cod!==200">
+  <h1>No data found</h1>
+</div>

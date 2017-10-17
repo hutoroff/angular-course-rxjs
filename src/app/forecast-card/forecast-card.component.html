@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-header>
+    {{forecast.name}}, {{forecast.sys.country}}
+  </mat-card-header>
+  <img mat-card-image src="http://openweathermap.org/img/w/{{forecast.weather[0].icon}}" alt={{forecast.weather[0].main}}>
+  <mat-card-content>
+    <p>
+      {{forecast.weather[0].description}}
+    </p>
+    <p>
+      {{forecast.main.temp}}°C (min: {{forecast.main.temp_min}}°C, max: {{forecast.main.temp_max}}°C)
+    </p>
+    <p>
+      Wind: {{forecast.wind.speed}} m/s; Pressure: {{forecast.main.pressure}}
+    </p>
+  </mat-card-content>
+  <mat-card-footer>
+    information provided by OpenWeatherMap.org
+  </mat-card-footer>
+</mat-card>
