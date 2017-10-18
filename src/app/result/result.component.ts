@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Observable} from "rxjs/Observable";
+import {Component, OnInit} from '@angular/core';
+import {SearchService} from "../common/service/search.service";
 
 @Component({
   selector: 'app-result',
@@ -8,12 +8,17 @@ import {Observable} from "rxjs/Observable";
 })
 export class ResultComponent implements OnInit {
 
-  @Input()
-  public forecast$: Observable<WeatherForecast>;
+  public forecast: WeatherForecast;
 
-  constructor() { }
+  constructor(
+    private _searchService: SearchService
+  ) {}
 
   ngOnInit() {
+    this._searchService._result$.subscribe(
+      (resp: WeatherForecast) => {
+        this.forecast = resp;
+      });
   }
 
 }

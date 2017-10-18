@@ -16,8 +16,8 @@ export class SearchService {
     @Inject(CURRENT_WEATHER_URL_TOKENIZED_TOKEN) private _tokenizedUrl: string,
     private _http: HttpClient
   ) {
-    this._result$ = this._query$$.asObservable().debounceTime(1300)   //API limit is 50 queries per minute, debounce time of 1300 allows not to be banned
-      .switchMap((query: string) => this._requestData(query));
+    this._result$ = this._query$$.debounceTime(1300)   //API limit is 50 queries per minute, debounce time of 1300 allows not to be banned
+      .switchMap((value: string) =>  this._requestData(value) );
   }
 
   private _requestData(query: string): Observable<WeatherForecast> {

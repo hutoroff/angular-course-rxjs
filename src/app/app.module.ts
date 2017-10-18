@@ -35,7 +35,7 @@ import {InterceptorService} from "./common/service/interceptor.service";
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useValue: InterceptorService,
+      useClass: InterceptorService,
       multi: true
     }
   ],

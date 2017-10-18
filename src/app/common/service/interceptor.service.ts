@@ -1,30 +1,27 @@
 import { Injectable } from '@angular/core';
 import {
-  HttpErrorResponse, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest,
+  HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest,
   HttpResponse
 } from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/of';
 
 @Injectable()
 export class InterceptorService implements HttpInterceptor {
 
-  public intercept<T extends { data: any }>(req: HttpRequest<T>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const headers: HttpHeaders = req.headers.append('Content-Type', 'application/json');
-    const jsonReq: HttpRequest<T> = req.clone({ headers });
+  public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    return next.handle(req).map((res: HttpEvent<any>) => {
+      if (res instanceof HttpResponse) {
+        return res.clone({body: res.body});
+      }
+      return Observable.of(res);
 
-    return next.handle(jsonReq).filter((res: HttpResponse<T>) => res instanceof HttpResponse)
-      .map((res: HttpResponse<T>) => {
-        return Object.assign(
-          res,
-          { body: res.body && res.body.data }
-        );
-      })
-      .catch((err: HttpErrorResponse) => {
-        return Observable.throw(err);
-      });
+    }).catch((err: HttpErrorResponse) => {
+      return Observable.throw(err);
+    });
+
   }
-
 }
