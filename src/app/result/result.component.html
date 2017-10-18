@@ -1,6 +1,6 @@
 <div *ngIf="forecast && forecast.cod === 200">
   <app-forecast-card [forecast]="forecast" [iconsetPath]="iconsetPath" class="result-card"></app-forecast-card>
 </div>
-<div *ngIf="forecast && forecast.cod == 404">
-  <h1>No data found</h1>
+<div *ngIf="errorMsg && errorMsg.length > 0">
+  <h1>{{errorMsg}}</h1>
 </div>

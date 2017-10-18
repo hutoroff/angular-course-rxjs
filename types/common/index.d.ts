@@ -1,4 +1,4 @@
-type WeatherForecast = {
+interface WeatherForecast {
   coord: Coordinates,
   weather: Weather[],
   base: string,

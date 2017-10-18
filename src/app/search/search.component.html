@@ -2,5 +2,5 @@
   <mat-form-field class="field">
     <input matInput placeholder={{placeholder}} (input)="find($event.target.value)" #city >
   </mat-form-field>
-  <button mat-raised-button="primary" class="button" (input)="findByButton(city.value)">Search</button>
+  <button mat-raised-button="primary" class="button" (click)="findByButton(city.value)">Search</button>
 </div>
