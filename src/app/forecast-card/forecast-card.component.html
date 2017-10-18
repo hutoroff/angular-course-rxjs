@@ -2,7 +2,7 @@
   <mat-card-header>
     {{forecast.name}}, {{forecast.sys.country}}
   </mat-card-header>
-  <img mat-card-image src="http://openweathermap.org/img/w/{{forecast.weather[0].icon}}" alt={{forecast.weather[0].main}}>
+  <img mat-card-image src="{{iconsetPath}}/{{forecast.weather[0].icon}}.png" alt={{forecast.weather[0].main}} class="weather-icon">
   <mat-card-content>
     <p>
       {{forecast.weather[0].description}}
@@ -11,7 +11,7 @@
       {{forecast.main.temp}}°C (min: {{forecast.main.temp_min}}°C, max: {{forecast.main.temp_max}}°C)
     </p>
     <p>
-      Wind: {{forecast.wind.speed}} m/s; Pressure: {{forecast.main.pressure}}
+      Wind: {{forecast.wind.speed}} m/s; Pressure: {{forecast.main.pressure}} mm Hg
     </p>
   </mat-card-content>
   <mat-card-footer>

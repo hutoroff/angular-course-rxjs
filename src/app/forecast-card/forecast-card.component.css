@@ -1,0 +1,14 @@
+.weather-icon {
+  width: 120px;
+}
+
+mat-card {
+  width: 40%;
+  margin: 10px auto;
+}
+
+mat-card-footer {
+  text-align: right;
+  font-style: italic;
+  padding: 5px;
+}

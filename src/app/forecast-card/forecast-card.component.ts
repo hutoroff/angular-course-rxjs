@@ -1,18 +1,16 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-forecast-card',
   templateUrl: './forecast-card.component.html',
   styleUrls: ['./forecast-card.component.css']
 })
-export class ForecastCardComponent implements OnInit {
+export class ForecastCardComponent {
 
   @Input()
   public forecast: WeatherForecast;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  @Input()
+  public iconsetPath: string;
 
 }
